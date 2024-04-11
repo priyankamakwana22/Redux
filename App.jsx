@@ -1,11 +1,16 @@
 import {useState} from 'react';
-import {FlatList, Pressable, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  FlatList,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {connect} from 'react-redux';
-import * as actionCreator from './src/store/actions/actions'
+
 
 const App = props => {
-  
-
   //   const [age, setAge] = useState(0);
 
   //   const onAgeDown = () => {
@@ -34,20 +39,20 @@ const App = props => {
             item.id;
           }}
           renderItem={({item}) => (
-            <TouchableOpacity onPress={() => props.onDelItem(item.id)}  >
+            <TouchableOpacity onPress={() => props.onDelItem(item.id)}>
               <View
-              style={{
-                borderWidth: 1,
-                margin: 2,
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: '#f7e8bc70',
-                borderColor: '#f9e5ad',
-                width: 40,
-                height: 30,
-              }}>
-              <Text>{item.age}</Text>
-            </View>
+                style={{
+                  borderWidth: 1,
+                  margin: 2,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundColor: '#f7e8bc70',
+                  borderColor: '#f9e5ad',
+                  width: 40,
+                  height: 30,
+                }}>
+                <Text>{item.age}</Text>
+              </View>
             </TouchableOpacity>
           )}
         />
@@ -68,15 +73,14 @@ const mapDispatchToProps = dispatch => {
     onAgeDown: () => {
       dispatch({type: 'ADD_DOWN', value: 1});
       // dispatch(actionCreator.ageUp(1))
-      
     },
     onAgeUp: () => {
       // dispatch(actionCreator.ageDown(1))
       dispatch({type: 'ADD_UP', value: 1});
     },
-    onDelItem : (id) => {
-      dispatch({type : 'DEL_ITEM', value : id})
-    }
+    onDelItem: id => {
+      dispatch({type: 'DEL_ITEM', value: id});
+    },
   };
 };
 

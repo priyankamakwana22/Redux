@@ -9,8 +9,7 @@ import {name as appName} from './app.json';
 //redux
 import {Provider} from 'react-redux';
 import ageReducer from './src/store/reducers/reducer';
-import {legacy_createStore as createStore, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
+import {legacy_createStore as createStore} from 'redux';
 
 //      creating a custom middleware
 
@@ -33,18 +32,5 @@ const reduxApp = () => {
     </Provider>
   );
 };
-
-// import {Provider} from 'react-redux';
-// import { legacy_createStore as createStore } from 'redux';
-// import reducer from './src/store/reducer';
-
-// const store = createStore(reducer)
-
-// const reduxApp = () => {
-//     return(
-//     <Provider store={store}>
-//         <App/>
-//     </Provider>)
-// }
 
 AppRegistry.registerComponent(appName, () => reduxApp);
